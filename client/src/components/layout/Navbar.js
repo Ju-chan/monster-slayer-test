@@ -1,47 +1,48 @@
-import React, {Fragment, useContext} from 'react';
+import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AuthContext from "../../context/auth/authContext"
-import ContactContext from "../../context/contact/contactContext";
+import AuthContext from '../../context/auth/authContext';
+// import ContactContext from '../../context/contact/contactContext';
 
 function Navbar({ title, icon }) {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, logout, user} = authContext;
+  const { isAuthenticated, logout, user } = authContext;
 
   // Assigning the function to the context to clear contacts which remain in the state after logging out
-    const contactContext = useContext(ContactContext);
-  const {clearContacts} = contactContext;
+  // const contactContext = useContext(ContactContext);
+  // const { clearContacts } = contactContext;
 
-// We're not clearing logout function in the onClick as we need to clear contacts after logging out
-  const onLogout = ()=> {
+  // We're not clearing logout function in the onClick as we need to clear contacts after logging out
+  const onLogout = () => {
     logout();
-    clearContacts();
-  }
+    // clearContacts();
+  };
 
   const authLinks = (
     <Fragment>
-    <li>Hello {user && user.name}</li>
-    <li>
-    <a onClick={onLogout}href="#!">
-    <i className="fas fa-sign-out-alt"></i> <span className="hide-sm">Logout</span>
-    </a>
-    </li>
+      <li>Hello {user && user.name}</li>
+      <li>
+        <a onClick={onLogout} href='#!'>
+          <i className='fas fa-sign-out-alt'></i>{' '}
+          <span className='hide-sm'>Logout</span>
+        </a>
+      </li>
     </Fragment>
-  )
-    const guestLinks = (
+  );
+  const guestLinks = (
     <Fragment>
-       <li>
-          <Link to='/register'>Register</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
+      <li>
+        <Link to='/register'>Register</Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
     </Fragment>
-  )
+  );
   return (
     <div className='navbar bg-primary'>
       <h1>
-        <i className={icon} /> {title}
+        <i /> {title}
       </h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
@@ -49,10 +50,8 @@ function Navbar({ title, icon }) {
 }
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string,
 };
 Navbar.defaultProps = {
-  title: 'Contact Keeper',
-  icon: 'fas fa-id-card-alt',
+  title: 'Monster Slayer',
 };
 export default Navbar;
