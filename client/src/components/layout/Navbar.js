@@ -20,8 +20,8 @@ function Navbar({ title, icon }) {
 
   const authLinks = (
     <Fragment>
-      <li>Hello {user && user.name}</li>
-      <li>
+      <li className='greeting'>Greetings, brave warrior {user && user.name}</li>
+      <li className='greeting'>
         <a onClick={onLogout} href='#!'>
           <i className='fas fa-sign-out-alt'></i>{' '}
           <span className='hide-sm'>Logout</span>
@@ -41,17 +41,17 @@ function Navbar({ title, icon }) {
   );
   return (
     <div className='navbar bg-primary'>
-      <h1>
-        <i /> {title}
-      </h1>
+      <h1 className='title'>{title}</h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   );
 }
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
+  icon: PropTypes.string,
 };
 Navbar.defaultProps = {
   title: 'Monster Slayer',
+  icon: '',
 };
 export default Navbar;

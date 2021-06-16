@@ -27,14 +27,12 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
-    // Data sent to the route
-    // res.send(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    // Destructuring req body
-    const { name, email, password } = req.body;
+
+    const { image, name, email, password } = req.body;
 
     // Checking if there is the user with these credentials already
     try {
@@ -44,6 +42,7 @@ router.post(
       }
       // Setting up a new user if it is a new one
       user = new User({
+        image,
         name,
         email,
         password,
@@ -80,6 +79,10 @@ router.post(
     }
   }
 );
+router.post('/users', async (req, res) => {
+  const foundUser = await User.findOne({ email: req.body.email });
+  res.send(foundUser);
+});
 
 // Exporting modules
 module.exports = router;

@@ -1,28 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&family=Kirang+Haerang&display=swap');
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
+  --primary-color: rgb(70, 41, 9);
   --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --light-color: rgb(158, 88, 12);
+  --danger-color: #30090d;
+  --success-color: #075219;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Fruktur', cursive;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+.title {
+  font-family: 'Fruktur', cursive;
+  font-size: 3rem;
+  line-height: 1.8;
+  color: var(--primary-color);
 }
-
+.greeting,
+.hide-sm,
+i {
+  color: var(--primary-color);
+  font-size: 20px;
+}
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -39,13 +44,16 @@ ul {
 img {
   width: 100%;
 }
-
+body {
+  background-image: url('./assets/main-back-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 100vw;
+  max-height: 100vh;
   margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
 }
 
 /* Text Styles*/
@@ -360,11 +368,13 @@ table th {
   align-items: center;
   padding: 0.7rem 2rem;
   z-index: 1;
-  width: 100%;
-  border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
   margin-bottom: 1rem;
-  background-color: var(--primary-color);
+  background-image: url('./assets/main-back-img.jpg');
+  background-size: cover;
+  max-width: 100vw;
+  max-height: 40vh;
+  background-repeat: no-repeat;
 }
 
 .navbar ul {
@@ -372,7 +382,8 @@ table th {
 }
 
 .navbar a {
-  color: #fff;
+  color: var(--primary-color);
+  font-size: 20px;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }

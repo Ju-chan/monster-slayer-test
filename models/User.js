@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 // Creating User schema
 const UserSchema = mongoose.Schema({
+  image: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
@@ -15,9 +18,16 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    default: Date.now,
+  health: {
+    type: Number,
+    default: 100,
+  },
+  gold: {
+    type: Number,
+    default: 100,
+  },
+  inventory: {
+    type: Array,
   },
 });
 // Exporting user Schema
