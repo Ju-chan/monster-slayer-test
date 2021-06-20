@@ -186,7 +186,7 @@ body {
 }
 
 .grid-2-3 {
-  display: grid;
+  text-align: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 2rem;
 }
@@ -451,4 +451,19 @@ table th {
     text-align: center;
     justify-content: center;
   }
+}
+
+.home-wrapper {
+  text-align: center;
+  margin: auto;
+}
+
+.home-wrapper p {
+  margin: 5px 0;
+}
+
+img {
+  max-width: 300px;
+  height: 200px;
+  border: 5px solid rgb(85, 59, 10);
 }

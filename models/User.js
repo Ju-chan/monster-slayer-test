@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const UserSchema = mongoose.Schema({
   image: {
     type: String,
+    default: './assets/warrior.png',
   },
   name: {
     type: String,
@@ -28,6 +29,7 @@ const UserSchema = mongoose.Schema({
   },
   inventory: {
     type: Array,
+    default: 'no weapons in the inventory yet',
   },
 });
 // Exporting user Schema

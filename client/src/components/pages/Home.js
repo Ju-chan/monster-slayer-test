@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import AuthContext from '../../context/auth/authContext';
+import Image from '../../assets/warrior.png';
 
 function Home() {
   const [user, showUser] = useState([]);
@@ -20,8 +21,12 @@ function Home() {
     // eslint-disable-next-line
   }, []);
   return (
-    <div className='grid-2'>
-      <h1>{user.gold}</h1>
+    <div className='home-wrapper'>
+      <h1>Your stats</h1>
+      <img src={Image} />
+      <p>Your current health amount: {user.health}</p>
+      <p>Your current gold amount: {user.gold}</p>
+      <p>Your current inventory: {user.inventory}</p>
     </div>
   );
 }
